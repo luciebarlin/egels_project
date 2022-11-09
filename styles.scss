@@ -1,0 +1,572 @@
+$basic-border: 1px solid black;
+$list-margin-top: 16px;
+$list-margin-bottom: 16px;
+$list-height: 21px;
+$navbar-height-total: calc($list-margin-top + $list-margin-bottom + $list-height);
+$light-pink: #F4C2C2;
+$h3-margin: 26px;
+$dark-text-shadow: 1px 1px 10px #000;
+$light-grey-1: #eee;
+$dark-grey: #3A3B3C;
+$card-padding: 16px;
+
+html {
+    scroll-behavior:smooth;
+}
+
+
+body {
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+}
+
+header {
+    width: 100%;
+    z-index: 1;
+    height: 53px;
+    display: flex;
+    font-weight: 600;
+    justify-content: center;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $light-pink;
+
+    li {
+        color: $dark-grey;
+    }
+}
+
+nav {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+
+    .logo {
+        height: 40px;
+        width: 40px;
+    }
+
+    .hidden {
+        opacity: 0;
+    }
+
+    .horizontal-list {
+        display: flex;
+        justify-content: center;
+        margin: $list-margin-top 0;
+        gap: 5px;
+        //dropdown styles
+        //overflow: hidden;
+        //background-color: $light-pink;
+        position: relative;
+
+        .hide-menu {
+            display: none;
+            
+        }
+        
+        .is-pink {
+            background-color: $light-pink;
+            color: $dark-grey;
+            text-shadow: none;
+        }
+
+        .js-menu-list {
+            top: calc($navbar-height-total - 17px);
+
+            a {
+                font-size: 14px;
+                width: 152px;
+                text-align: center;
+            }
+
+            a:hover {
+                background-color: $light-pink;
+                color: $dark-grey;
+                text-shadow: none;
+                
+            }
+        }
+
+        #egelbescherming-links {
+            position: absolute;
+            left: 229px;
+            
+        }
+
+        #egel-links {
+            position: absolute;
+            left: 418px;
+        }
+
+        #steun-links {
+            position: absolute;
+            left: 607px;
+        }
+
+        .sticky-list {
+            background-color: $light-pink;
+
+            a {
+                color: $dark-grey;
+                text-shadow: none;
+            }
+        }
+
+        a {
+            background-color: transparent;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            color: white;
+            text-shadow: $dark-text-shadow;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            font-weight: 600;
+        }
+    }
+
+    li {
+        color: white;
+        //border: $basic-border;
+        list-style: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        width: 152px;
+        text-align: center;
+    }
+
+ 
+
+    .dropdown-menu:after {
+        content: "⯆";
+        line-height: 0.5;
+    }
+}
+
+.hero {
+    height: 600px;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    background-image: url(http://www.egelbescherming.nl/wp-content/uploads/2015/04/header-1-darktop.jpg);
+    margin-top: -$navbar-height-total;
+    //margin-bottom: 50px;
+    transition: background-image 0.6s ease-in;
+
+    h1,
+    h2 {
+        margin: 4px;
+        padding: 8px 16px;
+        color: white;
+        //background-color: rgba(0, 0, 0, 0.2);
+        text-shadow: $dark-text-shadow;
+        width: fit-content;
+    }
+
+    h1 {
+        font-size: 76px;
+    }
+
+    .hero-text {
+        //border: $basic-border;
+        position: absolute;
+        right: 20px;
+        top: 33%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        //opacity: 0;
+        //transition: opacity 0.6s ease-in;
+    }
+
+}
+
+.button {
+    background-color: $light-pink;
+    color: $dark-grey;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 10px white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+
+    &:hover {
+        background-color: darken($light-pink, 10%);
+        cursor: pointer;
+    }
+}
+
+#kliks {
+    height: 100px;
+}
+
+.support {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $light-grey-1;
+    //margin-top: 50px;
+
+    .sponsor-kliks {
+        height: 100px;
+        width: 100px;
+        margin-bottom: $h3-margin;
+    }
+
+    h3 {
+        line-height: 1.5;
+
+        &:after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background-color: black;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 26px;
+    text-align: center;
+}
+
+.donation-banner {
+    background-image: url("https://www.egelbescherming.nl/wp-content/uploads/2015/03/aanbiedingen3.jpg");
+    background-size: cover;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    position: relative;
+
+    h3 {
+        font-weight: 900;
+        color: white;
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(white,0.6); /* white w/ opacity */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.donation-popup {
+    //visibility: hidden;
+    position: absolute;
+    bottom: 59%;
+    left: 130px;
+    margin-left: -80px; //check
+    padding: 30px;
+    align-items: center;
+    flex-direction: column;
+    //width: fit-content;
+    gap: 15px;
+    background-color: $dark-grey;
+    border-radius: 20px;
+
+    .donation-currency::before {
+        content: "€";
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 45%;
+        margin-left: -5px;
+        border-width: 20px;
+        border-style: solid;
+        border-color: $dark-grey transparent transparent transparent;
+    }
+
+    .button {
+        padding: 4px 8px;
+        
+    }
+    
+}
+
+.show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+
+.egel-articles {
+    gap: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    text-shadow: $dark-text-shadow;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto 50px;
+
+    .box-pic {
+        height: 400px;
+        width: 455px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            font-size: larger;
+            transition: font-size .6s ease-in-out;
+        }
+
+        &:nth-child(1) {
+            background-image: url("https://www.egelbescherming.nl/wp-content/uploads/2020/08/IMG_5747-e1598444441953.jpeg");
+        }
+
+        &:nth-child(2) {
+            background-image: url("https://www.egelbescherming.nl/wp-content/uploads/2014/04/egel-voederhuis.jpg");
+        }
+
+        &:nth-child(3) {
+            background-image: url("https://www.egelbescherming.nl/wp-content/uploads/2020/10/Wildlife-Transport-Rescue-Kit-Inhoud-web.jpg");
+        }
+
+        &:nth-child(4) {
+            background-image: url("https://www.egelbescherming.nl/wp-content/uploads/2015/06/lievv9okt6.jpg");
+        }
+
+        .article-title {
+
+            &:after {
+                content: '';
+                width: 60px;
+                height: 2px;
+                background-color: white;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        
+        a {
+            font-weight: 900;
+        }
+    }
+
+}
+
+.egel-weetjes {
+    background-color: lighten($light-grey-1, 5%);
+    padding-top: 50px;
+
+    h3 {
+        line-height: 1.5;
+        text-align: center;
+
+        &:after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background-color: black;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    .facts {
+        background-color: $light-grey-1;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 50px;
+        padding: 0 30px 30px;
+
+        // :first-child {
+        //     display: flex;
+        //     justify-content: space-between;
+        //     gap: 100px;
+        // }
+    }
+
+
+    li {
+        line-height: 1.5;
+        color: #777;
+        padding: 0 0 30px;
+    }
+
+}
+
+figure {
+    margin: 0;
+    background-color: $light-grey-1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+        width: 212px;
+    }
+
+    figcaption {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+
+.blog-articles {
+    background-color: $light-grey-1;
+    margin: 0;
+    padding-top: 30px;
+
+    h3 {
+        line-height: 1.5;
+        text-align: center;
+        padding-bottom: 30px;
+
+        &:after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background-color: black;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    h4 {
+        font-size: 16px;
+        color: #e84444;
+        font-weight: 600;
+        margin-top: 0;
+    }
+
+    h5 {
+        font-size: 11px;
+        font-weight: 600;
+        color: #777;
+
+        .bolder {
+            font-weight: 900;
+        }
+    }
+
+    .red {
+        color: #e84444;
+    }
+
+    .article-cards {
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 30px;
+
+        img {
+            width: 100%;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 2;
+        }
+
+        .card {
+            background-color: white;
+            width: 283px;
+            height: fit-content;
+            
+        }
+
+        .card-content {
+            padding: $card-padding;
+        }
+    }
+    
+}
+
+.offers-and-newsletter {
+    background-image: url("https://www.egelbescherming.nl/wp-content/uploads/2015/03/aanbiedingen3.jpg");
+    height: 390px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+
+    .offers,
+    .newsletters {
+        width: 50%;
+        text-align: center;
+        color: white;
+        text-shadow: $dark-text-shadow;
+        line-height: 1.5;
+        padding: 0 50px;
+
+        div {
+            font-weight: 900;
+            padding-bottom: 30px;
+            font-size: 20px;
+        }
+    }
+}
+
+footer {
+    background-color: $light-pink;
+    color: $dark-grey;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    font-size: 10px;
+    font-weight: 600;
+}
